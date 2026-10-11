@@ -1,0 +1,33 @@
+# Task 1 – Number Guessing Game (Java)
+
+A console-based number guessing game built in Java. The computer picks a random number, and the player guesses it using "Too High!" and "Too Low!" hints until they get it right or run out of attempts.
+
+## Features
+- Random number generated at the start of every round
+- Guess input through `Scanner`, with validation for invalid and out-of-range entries
+- Feedback after every guess: **Too High!**, **Too Low!** or **Correct!**
+- Attempt counter shown on every prompt, plus attempts left
+- Maximum attempts limit; the game ends with **You Lost!** and reveals the number
+- **Play Again** option after each round
+- Score tracking across rounds, for example: `Round 2 - guessed in 5 attempts`
+- Difficulty levels:
+
+| Level  | Range | Attempts |
+|--------|-------|----------|
+| Easy   | 1–50  | 10 |
+| Medium | 1–100 | 7  |
+| Hard   | 1–200 | 5  |
+
+## Concepts used
+`Random`, `Scanner`, `while` loops, `if-else`, enums, classes and objects, `ArrayList`, `try-catch`
+
+## How to run
+1. Install JDK 8 or newer.
+2. Open a terminal in this folder and run:
+```
+javac NumberGuessingGame.java
+java NumberGuessingGame
+```
+
+## Author
+Anandshivam Burman Roy
