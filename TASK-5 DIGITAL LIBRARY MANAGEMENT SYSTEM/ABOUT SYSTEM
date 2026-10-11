@@ -1,0 +1,53 @@
+# Task 2 – Digital Library Management System (Java)
+
+A web-based library system with separate **Admin** and **User** roles. It manages the book catalogue, issuing and returning, fines, advance bookings and member queries.
+
+## Features
+
+### Admin
+- Secure login with access to all admin pages
+- Add new books (title, author, ISBN, category, quantity)
+- Edit or delete existing books
+- View all issued books with due dates and overdue status
+- View and manage members (block / unblock accounts)
+- Fine management: view fines and mark them as paid
+- Read messages sent through the contact form
+
+### User
+- Registration and login (passwords stored as BCrypt hashes)
+- Browse the catalogue by category
+- Search for a book by title or author
+- Issue a book (available quantity decreases, due date is recorded)
+- Return a book (available quantity increases)
+- Automatic fine for late returns: ₹5 per overdue day (14-day loan period)
+- Advance booking: reserve a book that is currently issued to someone else
+- Contact / query form that stores messages in the database
+
+## Business rules
+- Loan period is 14 days and the fine is ₹5 per overdue day
+- A member with an unpaid fine cannot issue new books
+- Free copies are held for members who reserved earlier
+- A book with issue or reservation history cannot be deleted
+
+## Tech stack
+- **Language:** Java 17
+- **Backend:** Spring Boot 3, Spring MVC, Spring Data JPA (Hibernate), Spring Security
+- **Frontend:** Thymeleaf, HTML, CSS
+- **Database:** H2 (file-based) for easy local setup; MySQL supported
+- **Build tool:** Maven
+
+## Project structure
+```
+src/main/java/com/library/
+├── config/        Security configuration
+├── controller/    Auth, User and Admin controllers
+├── model/         User, Book, Loan, Reservation, ContactMessage
+├── repository/    Spring Data JPA repositories
+└── service/       LibraryService (business rules)
+src/main/resources/
+├── templates/     Thymeleaf pages (admin/ = admin panel)
+└── static/css/    Stylesheet
+```
+
+## Database design
+| Table | Main columns
